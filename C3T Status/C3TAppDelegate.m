@@ -10,11 +10,28 @@
 
 @implementation C3TAppDelegate
 
-@synthesize window = _window;
+@synthesize statusMenu, statusItem, statusImage, statusHighlightImage;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+}
+
+- (void) awakeFromNib 
+{
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+    
+    statusImage = [NSImage imageNamed:@"led_gray.png"];
+    
+    [statusItem setImage:statusImage];
+    [statusItem setAlternateImage:statusHighlightImage];
+    [statusItem setMenu:statusMenu];
+    [statusItem setToolTip:@"C3T Status"];
+}
+
+-(IBAction)pushedItem:(id)sender
+{
+    NSLog(@"hello");
 }
 
 @end

@@ -10,6 +10,11 @@
 
 @interface C3TAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property (weak)    IBOutlet NSMenu    *statusMenu;
+@property (strong)  NSStatusItem       *statusItem;
+@property (strong)  NSImage            *statusImage;
+@property (strong)  NSImage            *statusHighlightImage;
+
+-(IBAction)pushedItem:(id)sender;
 
 @end
