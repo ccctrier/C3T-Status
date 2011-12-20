@@ -38,30 +38,30 @@
 			<object class="NSCustomObject" id="755631768">
 				<string key="NSClassName">NSFontManager</string>
 			</object>
-			<object class="NSMenu" id="876950752">
+			<object class="NSMenu" id="800995734">
 				<string key="NSTitle"/>
 				<array class="NSMutableArray" key="NSMenuItems">
-					<object class="NSMenuItem" id="355684943">
-						<reference key="NSMenu" ref="876950752"/>
-						<string key="NSTitle">Pushed</string>
+					<object class="NSMenuItem" id="767295904">
+						<reference key="NSMenu" ref="800995734"/>
+						<string key="NSTitle">Check now</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
-						<object class="NSCustomResource" key="NSOnImage" id="142215292">
+						<object class="NSCustomResource" key="NSOnImage" id="34358733">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">NSMenuCheckmark</string>
 						</object>
-						<object class="NSCustomResource" key="NSMixedImage" id="531136718">
+						<object class="NSCustomResource" key="NSMixedImage" id="394230633">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 					</object>
-					<object class="NSMenuItem" id="748227315">
-						<reference key="NSMenu" ref="876950752"/>
+					<object class="NSMenuItem" id="657239765">
+						<reference key="NSMenu" ref="800995734"/>
 						<string key="NSTitle">Quit</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="142215292"/>
-						<reference key="NSMixedImage" ref="531136718"/>
+						<reference key="NSOnImage" ref="34358733"/>
+						<reference key="NSMixedImage" ref="394230633"/>
 					</object>
 				</array>
 			</object>
@@ -80,7 +80,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">terminate:</string>
 						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="748227315"/>
+						<reference key="destination" ref="657239765"/>
 					</object>
 					<int key="connectionID">543</int>
 				</object>
@@ -88,17 +88,17 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">statusMenu</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="876950752"/>
+						<reference key="destination" ref="800995734"/>
 					</object>
 					<int key="connectionID">540</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">pushedItem:</string>
+						<string key="label">checkStatus:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="355684943"/>
+						<reference key="destination" ref="767295904"/>
 					</object>
-					<int key="connectionID">541</int>
+					<int key="connectionID">545</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -139,23 +139,23 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">536</int>
-						<reference key="object" ref="876950752"/>
+						<reference key="object" ref="800995734"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="355684943"/>
-							<reference ref="748227315"/>
+							<reference ref="767295904"/>
+							<reference ref="657239765"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">StatusMenu</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">537</int>
-						<reference key="object" ref="355684943"/>
-						<reference key="parent" ref="876950752"/>
+						<reference key="object" ref="767295904"/>
+						<reference key="parent" ref="800995734"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">538</int>
-						<reference key="object" ref="748227315"/>
-						<reference key="parent" ref="876950752"/>
+						<reference key="object" ref="657239765"/>
+						<reference key="parent" ref="800995734"/>
 					</object>
 				</array>
 			</object>
@@ -173,7 +173,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">543</int>
+			<int key="maxID">545</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -181,13 +181,13 @@
 					<string key="className">C3TAppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">pushedItem:</string>
+						<string key="NS.key.0">checkStatus:</string>
 						<string key="NS.object.0">id</string>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">pushedItem:</string>
+						<string key="NS.key.0">checkStatus:</string>
 						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">pushedItem:</string>
+							<string key="name">checkStatus:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</object>

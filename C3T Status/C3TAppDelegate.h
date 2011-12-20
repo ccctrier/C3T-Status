@@ -15,7 +15,9 @@
 @property (strong)  NSStatusItem        *statusItem;
 @property (strong)  NSImage             *statusImage;
 @property (strong)  NSImage             *statusHighlightImage;
+@property (strong)  NSTimer             *mainLoopTimer;
+@property           BOOL                clubIsOnline;
 
--(IBAction)pushedItem:(id)sender;
+- (IBAction) checkStatus:(id)sender;
 
 @end

@@ -6,11 +6,13 @@
 		<integer>1</integer>
 		<key>AllNotifications</key>
 		<array>
-			<string>Club is online</string>
+			<string>Club ist online</string>
+			<string>Club ist offline</string>
 		</array>
 		<key>DefaultNotifications</key>
 		<array>
-			<string>Club is online</string>
+			<string>Club ist online</string>
+			<string>Club ist offline</string>
 		</array>
     </dict>
 </plist>
