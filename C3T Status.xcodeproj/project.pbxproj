@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D46CCC0E14A08B8D00DC1435 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */; };
+		D46CCC1814A08B8D00DC1435 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */; };
+		D46CCC1A14A08B8D00DC1435 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CCC1914A08B8D00DC1435 /* main.m */; };
+		D46CCC1E14A08B8D00DC1435 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC1C14A08B8D00DC1435 /* Credits.rtf */; };
+		D46CCC2114A08B8D00DC1435 /* C3TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CCC2014A08B8D00DC1435 /* C3TAppDelegate.m */; };
+		D46CCC2414A08B8D00DC1435 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC2214A08B8D00DC1435 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D46CCC0914A08B8D00DC1435 /* C3T Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C3T Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D46CCC1014A08B8D00DC1435 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D46CCC1114A08B8D00DC1435 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D46CCC1214A08B8D00DC1435 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D46CCC1514A08B8D00DC1435 /* C3T Status-Info.plist */ = {isa = PBXFileReference; path = "C3T Status-Info.plist"; sourceTree = "<group>"; };
+		D46CCC1714A08B8D00DC1435 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D46CCC1914A08B8D00DC1435 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D46CCC1B14A08B8D00DC1435 /* C3T Status-Prefix.pch */ = {isa = PBXFileReference; path = "C3T Status-Prefix.pch"; sourceTree = "<group>"; };
+		D46CCC1D14A08B8D00DC1435 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D46CCC1F14A08B8D00DC1435 /* C3TAppDelegate.h */ = {isa = PBXFileReference; path = C3TAppDelegate.h; sourceTree = "<group>"; };
+		D46CCC2014A08B8D00DC1435 /* C3TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C3TAppDelegate.m; sourceTree = "<group>"; };
+		D46CCC2314A08B8D00DC1435 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D46CCC0614A08B8D00DC1435 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46CCC0E14A08B8D00DC1435 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D46CCBFE14A08B8D00DC1435 = {
+			isa = PBXGroup;
+			children = (
+				D46CCC1314A08B8D00DC1435 /* C3T Status */,
+				D46CCC0C14A08B8D00DC1435 /* Frameworks */,
+				D46CCC0A14A08B8D00DC1435 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D46CCC0A14A08B8D00DC1435 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D46CCC0914A08B8D00DC1435 /* C3T Status.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D46CCC0C14A08B8D00DC1435 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */,
+				D46CCC0F14A08B8D00DC1435 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D46CCC0F14A08B8D00DC1435 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D46CCC1014A08B8D00DC1435 /* AppKit.framework */,
+				D46CCC1114A08B8D00DC1435 /* CoreData.framework */,
+				D46CCC1214A08B8D00DC1435 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D46CCC1314A08B8D00DC1435 /* C3T Status */ = {
+			isa = PBXGroup;
+			children = (
+				D46CCC1F14A08B8D00DC1435 /* C3TAppDelegate.h */,
+				D46CCC2014A08B8D00DC1435 /* C3TAppDelegate.m */,
+				D46CCC2214A08B8D00DC1435 /* MainMenu.xib */,
+				D46CCC1414A08B8D00DC1435 /* Supporting Files */,
+			);
+			path = "C3T Status";
+			sourceTree = "<group>";
+		};
+		D46CCC1414A08B8D00DC1435 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D46CCC1514A08B8D00DC1435 /* C3T Status-Info.plist */,
+				D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */,
+				D46CCC1914A08B8D00DC1435 /* main.m */,
+				D46CCC1B14A08B8D00DC1435 /* C3T Status-Prefix.pch */,
+				D46CCC1C14A08B8D00DC1435 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D46CCC0814A08B8D00DC1435 /* C3T Status */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D46CCC2714A08B8D00DC1435 /* Build configuration list for PBXNativeTarget "C3T Status" */;
+			buildPhases = (
+				D46CCC0514A08B8D00DC1435 /* Sources */,
+				D46CCC0614A08B8D00DC1435 /* Frameworks */,
+				D46CCC0714A08B8D00DC1435 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "C3T Status";
+			productName = "C3T Status";
+			productReference = D46CCC0914A08B8D00DC1435 /* C3T Status.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D46CCC0014A08B8D00DC1435 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D46CCC0314A08B8D00DC1435 /* Build configuration list for PBXProject "C3T Status" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D46CCBFE14A08B8D00DC1435;
+			productRefGroup = D46CCC0A14A08B8D00DC1435 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D46CCC0814A08B8D00DC1435 /* C3T Status */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D46CCC0714A08B8D00DC1435 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46CCC1814A08B8D00DC1435 /* InfoPlist.strings in Resources */,
+				D46CCC1E14A08B8D00DC1435 /* Credits.rtf in Resources */,
+				D46CCC2414A08B8D00DC1435 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D46CCC0514A08B8D00DC1435 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D46CCC1A14A08B8D00DC1435 /* main.m in Sources */,
+				D46CCC2114A08B8D00DC1435 /* C3TAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46CCC1714A08B8D00DC1435 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D46CCC1C14A08B8D00DC1435 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46CCC1D14A08B8D00DC1435 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D46CCC2214A08B8D00DC1435 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46CCC2314A08B8D00DC1435 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D46CCC2514A08B8D00DC1435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D46CCC2614A08B8D00DC1435 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D46CCC2814A08B8D00DC1435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "C3T Status/C3T Status-Prefix.pch";
+				INFOPLIST_FILE = "C3T Status/C3T Status-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D46CCC2914A08B8D00DC1435 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "C3T Status/C3T Status-Prefix.pch";
+				INFOPLIST_FILE = "C3T Status/C3T Status-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D46CCC0314A08B8D00DC1435 /* Build configuration list for PBXProject "C3T Status" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46CCC2514A08B8D00DC1435 /* Debug */,
+				D46CCC2614A08B8D00DC1435 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D46CCC2714A08B8D00DC1435 /* Build configuration list for PBXNativeTarget "C3T Status" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D46CCC2814A08B8D00DC1435 /* Debug */,
+				D46CCC2914A08B8D00DC1435 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D46CCC0014A08B8D00DC1435 /* Project object */;
+}
