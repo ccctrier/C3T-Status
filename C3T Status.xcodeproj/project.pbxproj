@@ -18,7 +18,7 @@
 		D46CCC3514A09F8100DC1435 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC3414A09F8100DC1435 /* Growl Registration Ticket.growlRegDict */; };
 		D46CCC4314A0A8DC00DC1435 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D46CCC4114A0A8C300DC1435 /* Growl.framework */; };
 		D46CCC4414A0A93800DC1435 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CCC4114A0A8C300DC1435 /* Growl.framework */; };
-		D46CCC4614A0B2FC00DC1435 /* c3t_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC4514A0B2FC00DC1435 /* c3t_logo.png */; };
+		D46CCC4A14A0CE7700DC1435 /* C3T_Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC4914A0CE7700DC1435 /* C3T_Icon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,7 +52,7 @@
 		D46CCC2F14A09B7F00DC1435 /* led_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = led_gray.png; sourceTree = "<group>"; };
 		D46CCC3414A09F8100DC1435 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		D46CCC4114A0A8C300DC1435 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		D46CCC4514A0B2FC00DC1435 /* c3t_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c3t_logo.png; sourceTree = "<group>"; };
+		D46CCC4914A0CE7700DC1435 /* C3T_Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = C3T_Icon.icns; path = ../C3T_Icon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +119,9 @@
 		D46CCC1414A08B8D00DC1435 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D46CCC4914A0CE7700DC1435 /* C3T_Icon.icns */,
 				D46CCC2E14A09B7F00DC1435 /* led_blue.png */,
 				D46CCC2F14A09B7F00DC1435 /* led_gray.png */,
-				D46CCC4514A0B2FC00DC1435 /* c3t_logo.png */,
 				D46CCC1514A08B8D00DC1435 /* C3T Status-Info.plist */,
 				D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */,
 				D46CCC1914A08B8D00DC1435 /* main.m */,
@@ -189,7 +189,7 @@
 				D46CCC3014A09B7F00DC1435 /* led_blue.png in Resources */,
 				D46CCC3114A09B7F00DC1435 /* led_gray.png in Resources */,
 				D46CCC3514A09F8100DC1435 /* Growl Registration Ticket.growlRegDict in Resources */,
-				D46CCC4614A0B2FC00DC1435 /* c3t_logo.png in Resources */,
+				D46CCC4A14A0CE7700DC1435 /* C3T_Icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

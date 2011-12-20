@@ -15,7 +15,6 @@
 @property (strong)  NSStatusItem        *statusItem;
 @property (strong)  NSImage             *statusImage;
 @property (strong)  NSImage             *statusHighlightImage;
-@property (strong)  NSData              *clubLogo;
 
 -(IBAction)pushedItem:(id)sender;
 

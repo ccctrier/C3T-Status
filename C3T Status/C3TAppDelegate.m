@@ -11,7 +11,6 @@
 @implementation C3TAppDelegate
 
 @synthesize statusMenu, statusItem, statusImage, statusHighlightImage;
-@synthesize clubLogo;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -20,7 +19,6 @@
 
 - (void) awakeFromNib 
 {
-    clubLogo = [NSImage imageNamed:@"c3t_logo.png"];
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
     statusImage = [NSImage imageNamed:@"led_gray.png"];
@@ -41,7 +39,7 @@
     [GrowlApplicationBridge notifyWithTitle:@"C3T Status"
                                 description:@"Es ist Club!"
                             notificationName:@"Club is online"
-                                    iconData:clubLogo 
+                                    iconData:nil 
                                     priority:0
                                     isSticky:NO
                                 clickContext:@"clicked"];
