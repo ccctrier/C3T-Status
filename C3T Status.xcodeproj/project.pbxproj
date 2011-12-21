@@ -16,9 +16,9 @@
 		D46CCC3014A09B7F00DC1435 /* led_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC2E14A09B7F00DC1435 /* led_blue.png */; };
 		D46CCC3114A09B7F00DC1435 /* led_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC2F14A09B7F00DC1435 /* led_gray.png */; };
 		D46CCC3514A09F8100DC1435 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC3414A09F8100DC1435 /* Growl Registration Ticket.growlRegDict */; };
-		D46CCC4314A0A8DC00DC1435 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D46CCC4114A0A8C300DC1435 /* Growl.framework */; };
-		D46CCC4414A0A93800DC1435 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CCC4114A0A8C300DC1435 /* Growl.framework */; };
-		D46CCC4A14A0CE7700DC1435 /* C3T_Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC4914A0CE7700DC1435 /* C3T_Icon.icns */; };
+		EAF1A7DE14A261E700008B41 /* C3T_Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */; };
+		EAF1A7E814A2628700008B41 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF1A7E714A2628700008B41 /* Growl.framework */; };
+		EAF1A7E914A263E600008B41 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EAF1A7E714A2628700008B41 /* Growl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D46CCC4314A0A8DC00DC1435 /* Growl.framework in CopyFiles */,
+				EAF1A7E914A263E600008B41 /* Growl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +51,8 @@
 		D46CCC2E14A09B7F00DC1435 /* led_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = led_blue.png; sourceTree = "<group>"; };
 		D46CCC2F14A09B7F00DC1435 /* led_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = led_gray.png; sourceTree = "<group>"; };
 		D46CCC3414A09F8100DC1435 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
-		D46CCC4114A0A8C300DC1435 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		D46CCC4914A0CE7700DC1435 /* C3T_Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = C3T_Icon.icns; path = ../C3T_Icon.icns; sourceTree = "<group>"; };
+		EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = C3T_Icon.icns; sourceTree = "<group>"; };
+		EAF1A7E714A2628700008B41 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "C3T Status/Frameworks/Growl.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D46CCC0E14A08B8D00DC1435 /* Cocoa.framework in Frameworks */,
-				D46CCC4414A0A93800DC1435 /* Growl.framework in Frameworks */,
+				EAF1A7E814A2628700008B41 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 		D46CCC0C14A08B8D00DC1435 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D46CCC4114A0A8C300DC1435 /* Growl.framework */,
+				EAF1A7E714A2628700008B41 /* Growl.framework */,
 				D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */,
 				D46CCC0F14A08B8D00DC1435 /* Other Frameworks */,
 			);
@@ -119,7 +119,7 @@
 		D46CCC1414A08B8D00DC1435 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D46CCC4914A0CE7700DC1435 /* C3T_Icon.icns */,
+				EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */,
 				D46CCC2E14A09B7F00DC1435 /* led_blue.png */,
 				D46CCC2F14A09B7F00DC1435 /* led_gray.png */,
 				D46CCC1514A08B8D00DC1435 /* C3T Status-Info.plist */,
@@ -189,7 +189,7 @@
 				D46CCC3014A09B7F00DC1435 /* led_blue.png in Resources */,
 				D46CCC3114A09B7F00DC1435 /* led_gray.png in Resources */,
 				D46CCC3514A09F8100DC1435 /* Growl Registration Ticket.growlRegDict in Resources */,
-				D46CCC4A14A0CE7700DC1435 /* C3T_Icon.icns in Resources */,
+				EAF1A7DE14A261E700008B41 /* C3T_Icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +287,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/C3T Status/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "C3T Status/C3T Status-Prefix.pch";
@@ -302,7 +302,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/C3T Status/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "C3T Status/C3T Status-Prefix.pch";
@@ -331,6 +331,7 @@
 				D46CCC2914A08B8D00DC1435 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
