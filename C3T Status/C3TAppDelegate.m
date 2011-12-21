@@ -79,7 +79,7 @@
 
 - (IBAction) checkStatus:(id)sender
 { 
-    NSURL *flagURL = [NSURL URLWithString:@"http://c3t.de/club/flag.xml"];
+    NSURL *flagURL = [NSURL URLWithString:@"http://c3t.de/club/flag.json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:flagURL];
 
     NSURLResponse *response = nil;
@@ -88,12 +88,13 @@
                                                  returningResponse:&response
                                                              error:&error];
     
-    NSXMLDocument *xmlDoc;
-    xmlDoc = [[NSXMLDocument alloc] initWithData:receivedData options:(NSXMLNodePreserveWhitespace|NSXMLNodePreserveCDATA) error:&error];
+    if (receivedData == nil) {
+        return;
+    }
     
-    NSXMLNode *statusEntry = [[[xmlDoc rootElement] children] objectAtIndex:0];
+    id object = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&error];
     
-    BOOL currentStatus = [[statusEntry stringValue] boolValue];
+    BOOL currentStatus = [[object valueForKey:@"status"] boolValue];
     
     if (clubIsOnline != currentStatus || [[sender class] isSubclassOfClass:[NSMenuItem class]]) {
         [self switchClubStatusTo:currentStatus];
