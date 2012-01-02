@@ -24,7 +24,10 @@
     [statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"C3T Status"];
     [statusItem setHighlightMode:YES];
-    
+}
+
+- (void) applicationDidFinishLaunching:(NSNotification *)notification
+{
     [GrowlApplicationBridge setGrowlDelegate:self];
     
     [self performSelector:@selector(checkStatus:)withObject:nil];
