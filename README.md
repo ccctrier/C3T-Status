@@ -1,4 +1,4 @@
-****C3T Status.app****
+**C3T Status.app**
 
 Die C3T Status.app für OS X Lion sorgt als kleines Menubar Item dafür das Du automatisch eine [Growl](http://growl.info/) Benachrichtigung bekommst sobald der Clubraum des [C3T](http://c3t.de) online geht.
 
