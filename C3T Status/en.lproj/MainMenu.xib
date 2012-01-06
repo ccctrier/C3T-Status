@@ -55,9 +55,9 @@
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 					</object>
-					<object class="NSMenuItem" id="108198023">
+					<object class="NSMenuItem" id="97484414">
 						<reference key="NSMenu" ref="800995734"/>
-						<string key="NSTitle">Startup at login</string>
+						<string key="NSTitle">Start at login</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="34358733"/>
@@ -112,7 +112,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">startUpMenuItem</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="108198023"/>
+						<reference key="destination" ref="97484414"/>
 					</object>
 					<int key="connectionID">547</int>
 				</object>
@@ -120,7 +120,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">setLoginItem:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="108198023"/>
+						<reference key="destination" ref="97484414"/>
 					</object>
 					<int key="connectionID">548</int>
 				</object>
@@ -167,7 +167,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="767295904"/>
 							<reference ref="657239765"/>
-							<reference ref="108198023"/>
+							<reference ref="97484414"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">StatusMenu</string>
@@ -184,7 +184,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">546</int>
-						<reference key="object" ref="108198023"/>
+						<reference key="object" ref="97484414"/>
 						<reference key="parent" ref="800995734"/>
 					</object>
 				</array>

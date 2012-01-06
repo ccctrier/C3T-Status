@@ -6,5 +6,5 @@ Die C3T Status.app für OS X Lion sorgt als kleines Menubar Item dafür das Du a
 
 Das Growl Framework wird mitgeliefert und ist nicht zwingend erforderlich, arbeitet aber mit einer vorhandenen Installation zusammen.
 
-![image](http://f.cl.ly/items/3T1A0s333l0v0s1T3W1T/c3t_status_menu.png)
+
 
