@@ -127,7 +127,7 @@
                                                             kLSSharedFileListSessionLoginItems, NULL);
 	if (loginItems) {
 		UInt32 seedValue;
-		NSArray  *loginItemsArray = (__bridge NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
+		NSArray *loginItemsArray = (__bridge_transfer NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
 		for(int i = 0 ; i< [loginItemsArray count]; i++){
 			LSSharedFileListItemRef itemRef = (__bridge LSSharedFileListItemRef)[loginItemsArray objectAtIndex:i];
             
@@ -147,7 +147,7 @@
 - (void) addAppAsLoginItem 
 {
 	NSString *appPath = [[NSBundle mainBundle] bundlePath];
-	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath]; 
+	CFURLRef url = (__bridge_retained CFURLRef)[NSURL fileURLWithPath:appPath]; 
 
 	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL,kLSSharedFileListSessionLoginItems, NULL);
 	if (loginItems) {
@@ -155,8 +155,8 @@
 		if (item){
 			CFRelease(item);
         }
-	}	
-	CFRelease(loginItems);
+	}
+	CFRelease(url);
 }
 
 - (void) deleteAppFromLoginItem 
@@ -168,12 +168,12 @@
                                                             kLSSharedFileListSessionLoginItems, NULL);
 	if (loginItems) {
 		UInt32 seedValue;
-		NSArray  *loginItemsArray = (__bridge NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
+		NSArray  *loginItemsArray = (__bridge_transfer NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
 		for(int i = 0 ; i< [loginItemsArray count]; i++){
 			LSSharedFileListItemRef itemRef = (__bridge LSSharedFileListItemRef)[loginItemsArray objectAtIndex:i];
             
 			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
-				NSString * urlPath = [(__bridge NSURL*)url path];
+				NSString * urlPath = [(__bridge_transfer NSURL*)url path];
 				if ([urlPath compare:appPath] == NSOrderedSame){
 					LSSharedFileListItemRemove(loginItems,itemRef);
 				}
