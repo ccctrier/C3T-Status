@@ -45,11 +45,11 @@
     
     if (clubIsOnline) {
         notification = @"Club ist online";
-        message = @"Es ist Club!";
+        message = NSLocalizedString(@"Club is online", @"");
     }
     else {
         notification = @"Club ist offline";
-        message = @"Der Club ist offline!";
+        message = NSLocalizedString(@"Club is offline", @"");
     }
     [GrowlApplicationBridge notifyWithTitle:@"C3T Status"
                                 description:message

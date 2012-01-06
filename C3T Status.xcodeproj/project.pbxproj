@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D43482FC14B70CDF002E85B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D43482FA14B70CDF002E85B8 /* Localizable.strings */; };
+		D43482FE14B70CEE002E85B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D43482FA14B70CDF002E85B8 /* Localizable.strings */; };
 		D46CCC0E14A08B8D00DC1435 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */; };
 		D46CCC1814A08B8D00DC1435 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */; };
 		D46CCC1A14A08B8D00DC1435 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CCC1914A08B8D00DC1435 /* main.m */; };
-		D46CCC1E14A08B8D00DC1435 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC1C14A08B8D00DC1435 /* Credits.rtf */; };
 		D46CCC2114A08B8D00DC1435 /* C3TAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CCC2014A08B8D00DC1435 /* C3TAppDelegate.m */; };
 		D46CCC2414A08B8D00DC1435 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC2214A08B8D00DC1435 /* MainMenu.xib */; };
 		D46CCC3014A09B7F00DC1435 /* led_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC2E14A09B7F00DC1435 /* led_blue.png */; };
@@ -35,6 +36,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D43482F914B6FF80002E85B8 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D43482FB14B70CDF002E85B8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D43482FD14B70CEE002E85B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D46CCC0914A08B8D00DC1435 /* C3T Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C3T Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D46CCC1014A08B8D00DC1435 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -44,9 +48,8 @@
 		D46CCC1714A08B8D00DC1435 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D46CCC1914A08B8D00DC1435 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D46CCC1B14A08B8D00DC1435 /* C3T Status-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "C3T Status-Prefix.pch"; sourceTree = "<group>"; };
-		D46CCC1D14A08B8D00DC1435 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		D46CCC1F14A08B8D00DC1435 /* C3TAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = C3TAppDelegate.h; sourceTree = "<group>"; };
-		D46CCC2014A08B8D00DC1435 /* C3TAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = C3TAppDelegate.m; sourceTree = "<group>"; };
+		D46CCC2014A08B8D00DC1435 /* C3TAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C3TAppDelegate.m; sourceTree = "<group>"; };
 		D46CCC2314A08B8D00DC1435 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D46CCC2E14A09B7F00DC1435 /* led_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = led_blue.png; sourceTree = "<group>"; };
 		D46CCC2F14A09B7F00DC1435 /* led_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = led_gray.png; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		D46CCC1414A08B8D00DC1435 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D43482FA14B70CDF002E85B8 /* Localizable.strings */,
 				EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */,
 				D46CCC2E14A09B7F00DC1435 /* led_blue.png */,
 				D46CCC2F14A09B7F00DC1435 /* led_gray.png */,
@@ -126,7 +130,6 @@
 				D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */,
 				D46CCC1914A08B8D00DC1435 /* main.m */,
 				D46CCC1B14A08B8D00DC1435 /* C3T Status-Prefix.pch */,
-				D46CCC1C14A08B8D00DC1435 /* Credits.rtf */,
 				D46CCC3414A09F8100DC1435 /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = "Supporting Files";
@@ -167,6 +170,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = D46CCBFE14A08B8D00DC1435;
 			productRefGroup = D46CCC0A14A08B8D00DC1435 /* Products */;
@@ -184,12 +188,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D46CCC1814A08B8D00DC1435 /* InfoPlist.strings in Resources */,
-				D46CCC1E14A08B8D00DC1435 /* Credits.rtf in Resources */,
 				D46CCC2414A08B8D00DC1435 /* MainMenu.xib in Resources */,
 				D46CCC3014A09B7F00DC1435 /* led_blue.png in Resources */,
 				D46CCC3114A09B7F00DC1435 /* led_gray.png in Resources */,
 				D46CCC3514A09F8100DC1435 /* Growl Registration Ticket.growlRegDict in Resources */,
 				EAF1A7DE14A261E700008B41 /* C3T_Icon.icns in Resources */,
+				D43482FC14B70CDF002E85B8 /* Localizable.strings in Resources */,
+				D43482FE14B70CEE002E85B8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +213,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D43482FA14B70CDF002E85B8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D43482FB14B70CDF002E85B8 /* de */,
+				D43482FD14B70CEE002E85B8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,18 +230,11 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D46CCC1C14A08B8D00DC1435 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D46CCC1D14A08B8D00DC1435 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		D46CCC2214A08B8D00DC1435 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D46CCC2314A08B8D00DC1435 /* en */,
+				D43482F914B6FF80002E85B8 /* de */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
