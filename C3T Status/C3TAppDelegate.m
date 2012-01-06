@@ -9,6 +9,7 @@
 #import "C3TAppDelegate.h"
 
 @implementation C3TAppDelegate
+@synthesize startUpMenuItem;
 
 @synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, clubIsOnline;
 
@@ -30,6 +31,8 @@
 {
     [GrowlApplicationBridge setGrowlDelegate:self];
     
+    [self isAppInLoginItems]; 
+        
     [self performSelector:@selector(checkStatus:)withObject:nil];
     mainLoopTimer = [NSTimer scheduledTimerWithTimeInterval: 60.0
                                                      target: self
@@ -102,6 +105,81 @@
     if (clubIsOnline != currentStatus || [[sender class] isSubclassOfClass:[NSMenuItem class]]) {
         [self switchClubStatusTo:currentStatus];
     }
+}
+
+- (IBAction)setLoginItem:(NSMenuItem *)sender 
+{
+    if (sender.state == NSOnState) {
+        [self deleteAppFromLoginItem];
+    }
+    else if (sender.state == NSOffState) {
+        [self addAppAsLoginItem];
+    }
+    [self isAppInLoginItems];
+}
+
+- (BOOL) isAppInLoginItems
+{
+	NSString *appPath = [[NSBundle mainBundle] bundlePath];
+	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath]; 
+    
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL,
+                                                            kLSSharedFileListSessionLoginItems, NULL);
+	if (loginItems) {
+		UInt32 seedValue;
+		NSArray  *loginItemsArray = (__bridge NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
+		for(int i = 0 ; i< [loginItemsArray count]; i++){
+			LSSharedFileListItemRef itemRef = (__bridge LSSharedFileListItemRef)[loginItemsArray objectAtIndex:i];
+            
+			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
+				NSString * urlPath = [(__bridge NSURL*)url path];
+				if ([urlPath compare:appPath] == NSOrderedSame){
+                    startUpMenuItem.state = NSOnState;
+                    return YES;
+				}
+			}
+		}
+	}
+    startUpMenuItem.state = NSOffState;
+    return NO;
+}
+
+- (void) addAppAsLoginItem 
+{
+	NSString *appPath = [[NSBundle mainBundle] bundlePath];
+	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath]; 
+
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL,kLSSharedFileListSessionLoginItems, NULL);
+	if (loginItems) {
+		LSSharedFileListItemRef item = LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemLast, NULL, NULL, url, NULL, NULL);
+		if (item){
+			CFRelease(item);
+        }
+	}	
+	CFRelease(loginItems);
+}
+
+- (void) deleteAppFromLoginItem 
+{
+	NSString *appPath = [[NSBundle mainBundle] bundlePath];
+	CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:appPath]; 
+
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL,
+                                                            kLSSharedFileListSessionLoginItems, NULL);
+	if (loginItems) {
+		UInt32 seedValue;
+		NSArray  *loginItemsArray = (__bridge NSArray *)LSSharedFileListCopySnapshot(loginItems, &seedValue);
+		for(int i = 0 ; i< [loginItemsArray count]; i++){
+			LSSharedFileListItemRef itemRef = (__bridge LSSharedFileListItemRef)[loginItemsArray objectAtIndex:i];
+            
+			if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &url, NULL) == noErr) {
+				NSString * urlPath = [(__bridge NSURL*)url path];
+				if ([urlPath compare:appPath] == NSOrderedSame){
+					LSSharedFileListItemRemove(loginItems,itemRef);
+				}
+			}
+		}
+	}
 }
 
 @end
