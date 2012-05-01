@@ -11,7 +11,7 @@
 @implementation C3TAppDelegate
 @synthesize startUpMenuItem;
 
-@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, clubIsOnline;
+@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, clubIsOnline;
 
 - (void) awakeFromNib 
 {
@@ -19,6 +19,10 @@
     
     statusImage = [NSImage imageNamed:@"led_gray.png"];
     statusHighlightImage = [NSImage imageNamed:@"led_blue.png"];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"notification" ofType:@"m4a"];
+    NSURL* url = [NSURL fileURLWithPath:path];
+    avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     
     [statusItem setImage:statusImage];
     [statusItem setAlternateImage:statusHighlightImage];
@@ -39,6 +43,11 @@
                                                    selector:@selector(checkStatus:)
                                                    userInfo: nil 
                                                     repeats:YES];
+}
+
+- (void) triggerSoundNotification
+{
+    [avAudioPlayer play];
 }
 
 - (void) triggerGrowlNotification
@@ -81,6 +90,7 @@
         [statusItem setAlternateImage:statusHighlightImage];
     }
     [self triggerGrowlNotification];
+    [self triggerSoundNotification];
 }
 
 - (IBAction) checkStatus:(id)sender

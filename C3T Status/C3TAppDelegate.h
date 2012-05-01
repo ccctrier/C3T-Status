@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <AVFoundation/AVAudioPlayer.h>
 #import <Growl/Growl.h>
 
 @interface C3TAppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate>
@@ -16,7 +17,8 @@
 @property (strong)  NSStatusItem        *statusItem;
 @property (strong)  NSImage             *statusImage;
 @property (strong)  NSImage             *statusHighlightImage;
-@property (strong)  NSTimer             *mainLoopTimer;
+@property (strong)  NSTimer             *mainLoopTimer;   
+@property (strong)  AVAudioPlayer       *avAudioPlayer;
 @property           BOOL                clubIsOnline;
 
 - (IBAction) checkStatus:(id)sender;
