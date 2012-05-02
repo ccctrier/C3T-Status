@@ -11,7 +11,7 @@
 @implementation C3TAppDelegate
 @synthesize startUpMenuItem;
 
-@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, clubIsOnline;
+@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, audioPath, clubIsOnline;
 
 - (void) awakeFromNib 
 {
@@ -20,8 +20,8 @@
     statusImage = [NSImage imageNamed:@"led_gray.png"];
     statusHighlightImage = [NSImage imageNamed:@"led_blue.png"];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"notification" ofType:@"m4a"];
-    NSURL* url = [NSURL fileURLWithPath:path];
+    audioPath = [[NSBundle mainBundle] pathForResource:@"notification" ofType:@"m4a"];
+    NSURL* url = [NSURL fileURLWithPath:audioPath];
     avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     
     [statusItem setImage:statusImage];
@@ -29,6 +29,10 @@
     [statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"C3T Status"];
     [statusItem setHighlightMode:YES];
+    
+    #ifdef MAC_OS_X_VERSION_10_8
+    [NSUserNotificationCenter defaultUserNotificationCenter].delegate = self;
+    #endif
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification *)notification
@@ -85,9 +89,12 @@
         NSUserNotification *esIstClub = [[NSUserNotification alloc] init];
         esIstClub.title = @"CCC Trier";
         esIstClub.subtitle = @"Es ist Club!";
+        
+        // NSUserNotification.soundName is not working in 10.8 (12A193i)
+        //esIstClub.soundName = audioPath;
             
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:esIstClub];
-        
+        [self triggerSoundNotification];
     }
     else {
         [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
@@ -101,7 +108,6 @@
     if(clubIsOnline) {
         [statusItem setImage:statusHighlightImage];
         [statusItem setAlternateImage:statusImage];
-        
     }
     else {
         [statusItem setImage:statusImage];
@@ -219,5 +225,17 @@
 		}
 	}
 }
+
+- (BOOL) hasNetworkClientEntitlement
+{
+    return YES;
+}
+
+#ifdef MAC_OS_X_VERSION_10_8
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+{    
+    return YES;
+}
+#endif
 
 @end

@@ -10,7 +10,13 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import <Growl/Growl.h>
 
-@interface C3TAppDelegate : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate>
+@interface C3TAppDelegate : NSObject
+#ifdef MAC_OS_X_VERSION_10_8
+<NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSUserNotificationCenterDelegate>
+#else
+<NSApplicationDelegate, GrowlApplicationBridgeDelegate>
+#endif
+
 
 @property (weak)    IBOutlet NSMenu     *statusMenu;
 @property (weak)    IBOutlet NSMenuItem *startUpMenuItem;
@@ -19,6 +25,7 @@
 @property (strong)  NSImage             *statusHighlightImage;
 @property (strong)  NSTimer             *mainLoopTimer;   
 @property (strong)  AVAudioPlayer       *avAudioPlayer;
+@property (strong)  NSString            *audioPath;
 @property           BOOL                clubIsOnline;
 
 - (IBAction) checkStatus:(id)sender;

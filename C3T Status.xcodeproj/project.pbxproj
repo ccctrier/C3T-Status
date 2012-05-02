@@ -57,6 +57,7 @@
 		D46CCC2E14A09B7F00DC1435 /* led_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = led_blue.png; sourceTree = "<group>"; };
 		D46CCC2F14A09B7F00DC1435 /* led_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = led_gray.png; sourceTree = "<group>"; };
 		D46CCC3414A09F8100DC1435 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		EA4049F71551A09E00B30724 /* C3T Status.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "C3T Status.entitlements"; sourceTree = "<group>"; };
 		EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = C3T_Icon.icns; sourceTree = "<group>"; };
 		EAF1A7E714A2628700008B41 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "C3T Status/Frameworks/Growl.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +128,7 @@
 		D46CCC1414A08B8D00DC1435 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA4049F71551A09E00B30724 /* C3T Status.entitlements */,
 				0D84178A154F6248008FEDD6 /* notification.m4a */,
 				D43482FA14B70CDF002E85B8 /* Localizable.strings */,
 				EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */,
@@ -168,7 +170,7 @@
 		D46CCC0014A08B8D00DC1435 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = D46CCC0314A08B8D00DC1435 /* Build configuration list for PBXProject "C3T Status" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -254,6 +256,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -281,6 +284,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -298,6 +302,7 @@
 		D46CCC2814A08B8D00DC1435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "C3T Status/C3T Status.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,6 +319,7 @@
 		D46CCC2914A08B8D00DC1435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "C3T Status/C3T Status.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
