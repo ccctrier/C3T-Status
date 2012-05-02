@@ -77,6 +77,24 @@
     [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString: @"http://c3t.de/club/?status"]];
 }
 
+- (void) deliverToNotificationCenter
+{
+    #ifdef MAC_OS_X_VERSION_10_8
+    if (clubIsOnline) {
+
+        NSUserNotification *esIstClub = [[NSUserNotification alloc] init];
+        esIstClub.title = @"CCC Trier";
+        esIstClub.subtitle = @"Es ist Club!";
+            
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:esIstClub];
+        
+    }
+    else {
+        [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
+    }
+    #endif
+}
+
 - (void) switchClubStatusTo:(BOOL)status
 {
     clubIsOnline = status;
@@ -89,8 +107,18 @@
         [statusItem setImage:statusImage];
         [statusItem setAlternateImage:statusHighlightImage];
     }
-    [self triggerGrowlNotification];
-    [self triggerSoundNotification];
+    
+    SInt32 OSXversionMajor, OSXversionMinor;
+    if(Gestalt(gestaltSystemVersionMajor, &OSXversionMajor) == noErr && Gestalt(gestaltSystemVersionMinor, &OSXversionMinor) == noErr)
+    {
+        if(OSXversionMajor == 10 && OSXversionMinor >= 8)
+        {
+            [self deliverToNotificationCenter];
+        } else {
+            [self triggerGrowlNotification];
+            [self triggerSoundNotification];
+        }
+    }
 }
 
 - (IBAction) checkStatus:(id)sender

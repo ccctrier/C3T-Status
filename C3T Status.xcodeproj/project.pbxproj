@@ -10,7 +10,6 @@
 		0D841789154F6044008FEDD6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D841788154F6044008FEDD6 /* AVFoundation.framework */; };
 		0D84178B154F6248008FEDD6 /* notification.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0D84178A154F6248008FEDD6 /* notification.m4a */; };
 		D43482FC14B70CDF002E85B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D43482FA14B70CDF002E85B8 /* Localizable.strings */; };
-		D43482FE14B70CEE002E85B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D43482FA14B70CDF002E85B8 /* Localizable.strings */; };
 		D46CCC0E14A08B8D00DC1435 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */; };
 		D46CCC1814A08B8D00DC1435 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */; };
 		D46CCC1A14A08B8D00DC1435 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CCC1914A08B8D00DC1435 /* main.m */; };
@@ -79,7 +78,6 @@
 		D46CCBFE14A08B8D00DC1435 = {
 			isa = PBXGroup;
 			children = (
-				0D841788154F6044008FEDD6 /* AVFoundation.framework */,
 				D46CCC1314A08B8D00DC1435 /* C3T Status */,
 				D46CCC0C14A08B8D00DC1435 /* Frameworks */,
 				D46CCC0A14A08B8D00DC1435 /* Products */,
@@ -97,6 +95,7 @@
 		D46CCC0C14A08B8D00DC1435 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D841788154F6044008FEDD6 /* AVFoundation.framework */,
 				EAF1A7E714A2628700008B41 /* Growl.framework */,
 				D46CCC0D14A08B8D00DC1435 /* Cocoa.framework */,
 				D46CCC0F14A08B8D00DC1435 /* Other Frameworks */,
@@ -169,7 +168,7 @@
 		D46CCC0014A08B8D00DC1435 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = D46CCC0314A08B8D00DC1435 /* Build configuration list for PBXProject "C3T Status" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -201,7 +200,6 @@
 				D46CCC3514A09F8100DC1435 /* Growl Registration Ticket.growlRegDict in Resources */,
 				EAF1A7DE14A261E700008B41 /* C3T_Icon.icns in Resources */,
 				D43482FC14B70CDF002E85B8 /* Localizable.strings in Resources */,
-				D43482FE14B70CEE002E85B8 /* Localizable.strings in Resources */,
 				0D84178B154F6248008FEDD6 /* notification.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +298,7 @@
 		D46CCC2814A08B8D00DC1435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/C3T Status/Frameworks\"",
@@ -315,6 +314,7 @@
 		D46CCC2914A08B8D00DC1435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/C3T Status/Frameworks\"",
