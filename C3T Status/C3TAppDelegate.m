@@ -9,7 +9,12 @@
 #import "C3TAppDelegate.h"
 
 @implementation C3TAppDelegate
+
+@synthesize menuSeperator1;
+@synthesize menuSeperator2;
 @synthesize startUpMenuItem;
+@synthesize notificationSoundMenuItem;
+@synthesize userDefaults;
 
 @synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, audioPath, clubIsOnline;
 
@@ -30,6 +35,11 @@
     [statusItem setToolTip:@"C3T Status"];
     [statusItem setHighlightMode:YES];
     
+    [statusMenu setAutoenablesItems:NO];
+    [statusMenu setDelegate:self];
+    
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    
     #ifdef MAC_OS_X_VERSION_10_8
     [NSUserNotificationCenter defaultUserNotificationCenter].delegate = self;
     #endif
@@ -39,7 +49,8 @@
 {
     [GrowlApplicationBridge setGrowlDelegate:self];
     
-    [self isAppInLoginItems]; 
+    [self isAppInLoginItems];
+    [self isSoundActive];
         
     [self performSelector:@selector(checkStatus:)withObject:nil];
     mainLoopTimer = [NSTimer scheduledTimerWithTimeInterval: 60.0
@@ -49,9 +60,31 @@
                                                     repeats:YES];
 }
 
+- (void) menuWillOpen:(NSMenu *)menu
+{
+    if ([NSEvent modifierFlags] & NSAlternateKeyMask) {
+        [startUpMenuItem setHidden: NO];
+        [notificationSoundMenuItem setHidden: NO];
+        [menuSeperator1 setHidden: NO];
+        [menuSeperator2 setHidden: NO];
+    } 
+}
+
+- (void) menuDidClose:(NSMenu *)menu
+{
+    if ([startUpMenuItem isHidden] == NO) {
+        [startUpMenuItem setHidden: YES];
+        [notificationSoundMenuItem setHidden: YES];
+        [menuSeperator1 setHidden: YES];
+        [menuSeperator2 setHidden: YES];
+    }
+}
+
 - (void) triggerSoundNotification
 {
-    [avAudioPlayer play];
+    if ([self isSoundActive]) {
+        [avAudioPlayer play];
+    }
 }
 
 - (void) triggerGrowlNotification
@@ -160,6 +193,29 @@
         [self addAppAsLoginItem];
     }
     [self isAppInLoginItems];
+}
+
+- (IBAction)setNotificationSound:(NSMenuItem *)sender {
+     if (sender.state == NSOnState) {
+         [userDefaults setBool:NO forKey:@"sound notification"];
+     }
+     else if (sender.state == NSOffState) {
+        [userDefaults setBool:YES forKey:@"sound notification"];
+     }
+    [self isSoundActive];
+}
+
+- (BOOL) isSoundActive
+{
+    BOOL isActive = [userDefaults boolForKey:@"sound notification"];
+    
+    if (isActive) {
+        notificationSoundMenuItem.state = NSOnState;
+    } else {
+        notificationSoundMenuItem.state = NSOffState;
+    }
+    
+    return isActive;
 }
 
 - (BOOL) isAppInLoginItems

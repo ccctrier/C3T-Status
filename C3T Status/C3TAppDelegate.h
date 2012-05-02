@@ -12,26 +12,33 @@
 
 @interface C3TAppDelegate : NSObject
 #ifdef MAC_OS_X_VERSION_10_8
-<NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSUserNotificationCenterDelegate>
+<NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSUserNotificationCenterDelegate, NSMenuDelegate>
 #else
-<NSApplicationDelegate, GrowlApplicationBridgeDelegate>
+<NSApplicationDelegate, GrowlApplicationBridgeDelegate, NSMenuDelegate>
 #endif
 
 
-@property (weak)    IBOutlet NSMenu     *statusMenu;
-@property (weak)    IBOutlet NSMenuItem *startUpMenuItem;
+@property (weak) IBOutlet NSMenu        *statusMenu;
+@property (weak) IBOutlet NSMenuItem    *startUpMenuItem;
+@property (weak) IBOutlet NSMenuItem    *notificationSoundMenuItem;
+@property (weak) IBOutlet NSMenuItem    *menuSeperator1;
+@property (weak) IBOutlet NSMenuItem    *menuSeperator2;
 @property (strong)  NSStatusItem        *statusItem;
 @property (strong)  NSImage             *statusImage;
 @property (strong)  NSImage             *statusHighlightImage;
 @property (strong)  NSTimer             *mainLoopTimer;   
 @property (strong)  AVAudioPlayer       *avAudioPlayer;
 @property (strong)  NSString            *audioPath;
+@property (strong)  NSUserDefaults      *userDefaults;
 @property           BOOL                clubIsOnline;
 
-- (IBAction) checkStatus:(id)sender;
-- (IBAction)setLoginItem:(NSMenuItem *)sender;
-- (BOOL) isAppInLoginItems;
-- (void) addAppAsLoginItem;
-- (void) deleteAppFromLoginItem;
+
+- (IBAction)    checkStatus:(id)sender;
+- (IBAction)    setLoginItem:(NSMenuItem *)sender;
+- (IBAction)    setNotificationSound:(NSMenuItem *)sender;
+- (BOOL)        isSoundActive;
+- (BOOL)        isAppInLoginItems;
+- (void)        addAppAsLoginItem;
+- (void)        deleteAppFromLoginItem;
 
 @end
