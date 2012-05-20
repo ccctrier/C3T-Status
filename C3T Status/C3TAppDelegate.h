@@ -31,6 +31,7 @@
 @property (strong)  NSString            *audioPath;
 @property (strong)  NSUserDefaults      *userDefaults;
 @property           BOOL                clubIsOnline;
+@property           BOOL                networkIsReachable;
 
 
 - (IBAction)    checkStatus:(id)sender;

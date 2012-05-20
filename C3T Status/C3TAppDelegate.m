@@ -7,6 +7,7 @@
 //
 
 #import "C3TAppDelegate.h"
+#import "Reachability.h"
 
 @implementation C3TAppDelegate
 
@@ -16,7 +17,7 @@
 @synthesize notificationSoundMenuItem;
 @synthesize userDefaults;
 
-@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, audioPath, clubIsOnline;
+@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, audioPath, clubIsOnline, networkIsReachable;
 
 - (void) awakeFromNib 
 {
@@ -49,6 +50,7 @@
 {
     [GrowlApplicationBridge setGrowlDelegate:self];
     
+    [self setupNetworkCheck];
     [self isAppInLoginItems];
     [self isSoundActive];
         
@@ -147,40 +149,46 @@
         [statusItem setAlternateImage:statusHighlightImage];
     }
     
-    SInt32 OSXversionMajor, OSXversionMinor;
-    if(Gestalt(gestaltSystemVersionMajor, &OSXversionMajor) == noErr && Gestalt(gestaltSystemVersionMinor, &OSXversionMinor) == noErr)
-    {
-        if(OSXversionMajor == 10 && OSXversionMinor >= 8)
+    if (networkIsReachable) {
+        SInt32 OSXversionMajor, OSXversionMinor;
+        if(Gestalt(gestaltSystemVersionMajor, &OSXversionMajor) == noErr && Gestalt(gestaltSystemVersionMinor, &OSXversionMinor) == noErr)
         {
-            [self deliverToNotificationCenter];
-        } else {
-            [self triggerGrowlNotification];
-            [self triggerSoundNotification];
+            if(OSXversionMajor == 10 && OSXversionMinor >= 8)
+            {
+                [self deliverToNotificationCenter];
+            } else {
+                [self triggerGrowlNotification];
+                [self triggerSoundNotification];
+            }
         }
     }
 }
 
 - (IBAction) checkStatus:(id)sender
 { 
-    NSURL *flagURL = [NSURL URLWithString:@"http://c3t.de/club/flag.json"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:flagURL];
-
-    NSURLResponse *response = nil;
-    NSError *error = nil;
-    NSData *receivedData = [NSURLConnection sendSynchronousRequest:request
-                                                 returningResponse:&response
-                                                             error:&error];
-    
-    if (receivedData == nil) {
-        return;
+    if (networkIsReachable) {
+        NSURL *flagURL = [NSURL URLWithString:@"http://c3t.de/club/flag.json"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:flagURL];
+        
+        NSURLResponse *response = nil;
+        NSError *error = nil;
+        NSData *receivedData = [NSURLConnection sendSynchronousRequest:request
+                                                     returningResponse:&response
+                                                                 error:&error];
+        if (receivedData == nil) {
+            return;
+        }
+        
+        id object = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&error];
+        
+        BOOL currentStatus = [[object valueForKey:@"status"] boolValue];
+        
+        if (clubIsOnline != currentStatus || [[sender class] isSubclassOfClass:[NSMenuItem class]]) {
+            [self switchClubStatusTo:currentStatus];
+        } 
     }
-    
-    id object = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&error];
-    
-    BOOL currentStatus = [[object valueForKey:@"status"] boolValue];
-    
-    if (clubIsOnline != currentStatus || [[sender class] isSubclassOfClass:[NSMenuItem class]]) {
-        [self switchClubStatusTo:currentStatus];
+    else {
+        [self switchClubStatusTo:NO];
     }
 }
 
@@ -280,6 +288,26 @@
 			}
 		}
 	}
+}
+
+- (void) setupNetworkCheck
+{
+    Reachability * reach = [Reachability reachabilityWithHostname:@"c3t.de"];
+    
+    reach.reachableBlock = ^(Reachability * reachability) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            networkIsReachable = YES;
+            [self checkStatus:nil];
+        });
+    };
+    
+    reach.unreachableBlock = ^(Reachability * reachability) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            networkIsReachable = NO;
+            [self checkStatus:nil];
+        });
+    };
+    [reach startNotifier];
 }
 
 - (BOOL) hasNetworkClientEntitlement
