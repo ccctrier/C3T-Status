@@ -23,6 +23,8 @@
 		EAF1A7DE14A261E700008B41 /* C3T_Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */; };
 		EAF1A7E814A2628700008B41 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF1A7E714A2628700008B41 /* Growl.framework */; };
 		EAF1A7E914A263E600008B41 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EAF1A7E714A2628700008B41 /* Growl.framework */; };
+		EAFC6A66158CDD3400CB3541 /* led_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC6A65158CDD3400CB3541 /* led_blue@2x.png */; };
+		EAFC6A69158CDD3F00CB3541 /* led_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC6A68158CDD3F00CB3541 /* led_gray@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +67,8 @@
 		EA4049F71551A09E00B30724 /* C3T Status.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "C3T Status.entitlements"; sourceTree = "<group>"; };
 		EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = C3T_Icon.icns; sourceTree = "<group>"; };
 		EAF1A7E714A2628700008B41 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "C3T Status/Frameworks/Growl.framework"; sourceTree = "<group>"; };
+		EAFC6A65158CDD3400CB3541 /* led_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "led_blue@2x.png"; sourceTree = "<group>"; };
+		EAFC6A68158CDD3F00CB3541 /* led_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "led_gray@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +146,9 @@
 				D43482FA14B70CDF002E85B8 /* Localizable.strings */,
 				EAF1A7DD14A261E700008B41 /* C3T_Icon.icns */,
 				D46CCC2E14A09B7F00DC1435 /* led_blue.png */,
+				EAFC6A65158CDD3400CB3541 /* led_blue@2x.png */,
 				D46CCC2F14A09B7F00DC1435 /* led_gray.png */,
+				EAFC6A68158CDD3F00CB3541 /* led_gray@2x.png */,
 				D46CCC1514A08B8D00DC1435 /* C3T Status-Info.plist */,
 				D46CCC1614A08B8D00DC1435 /* InfoPlist.strings */,
 				D46CCC1914A08B8D00DC1435 /* main.m */,
@@ -212,6 +218,8 @@
 				EAF1A7DE14A261E700008B41 /* C3T_Icon.icns in Resources */,
 				D43482FC14B70CDF002E85B8 /* Localizable.strings in Resources */,
 				0D84178B154F6248008FEDD6 /* notification.m4a in Resources */,
+				EAFC6A66158CDD3400CB3541 /* led_blue@2x.png in Resources */,
+				EAFC6A69158CDD3F00CB3541 /* led_gray@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +320,8 @@
 		D46CCC2814A08B8D00DC1435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "C3T Status/C3T Status.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/C3T Status/Frameworks\"",
@@ -328,7 +337,8 @@
 		D46CCC2914A08B8D00DC1435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "C3T Status/C3T Status.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/C3T Status/Frameworks\"",
