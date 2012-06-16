@@ -32,6 +32,8 @@
 @property (strong)  NSUserDefaults      *userDefaults;
 @property           BOOL                clubIsOnline;
 @property           BOOL                networkIsReachable;
+@property           BOOL                triggerNotification;
+@property (strong)  NSTimer             *recheckTimer;
 
 
 - (IBAction)    checkStatus:(id)sender;

@@ -16,8 +16,9 @@
 @synthesize startUpMenuItem;
 @synthesize notificationSoundMenuItem;
 @synthesize userDefaults;
+@synthesize triggerNotification;
 
-@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, audioPath, clubIsOnline, networkIsReachable;
+@synthesize statusMenu, statusItem, statusImage, statusHighlightImage, mainLoopTimer, avAudioPlayer, audioPath, clubIsOnline, networkIsReachable, recheckTimer;
 
 - (void) awakeFromNib 
 {
@@ -40,6 +41,8 @@
     [statusMenu setDelegate:self];
     
     userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    triggerNotification = YES;
     
     #ifdef MAC_OS_X_VERSION_10_8
     [NSUserNotificationCenter defaultUserNotificationCenter].delegate = self;
@@ -153,12 +156,14 @@
         SInt32 OSXversionMajor, OSXversionMinor;
         if(Gestalt(gestaltSystemVersionMajor, &OSXversionMajor) == noErr && Gestalt(gestaltSystemVersionMinor, &OSXversionMinor) == noErr)
         {
-            if(OSXversionMajor == 10 && OSXversionMinor >= 8)
-            {
-                [self deliverToNotificationCenter];
-            } else {
-                [self triggerGrowlNotification];
-                [self triggerSoundNotification];
+            if (triggerNotification) {
+                if(OSXversionMajor == 10 && OSXversionMinor >= 8)
+                {
+                    [self deliverToNotificationCenter];
+                } else {
+                    [self triggerGrowlNotification];
+                    [self triggerSoundNotification];
+                }
             }
         }
     }
@@ -182,6 +187,10 @@
         id object = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingMutableContainers error:&error];
         
         BOOL currentStatus = [[object valueForKey:@"status"] boolValue];
+        
+        if (currentStatus == NO) {
+            triggerNotification = YES;
+        }
         
         if (clubIsOnline != currentStatus || [[sender class] isSubclassOfClass:[NSMenuItem class]]) {
             [self switchClubStatusTo:currentStatus];
@@ -303,8 +312,17 @@
     
     reach.unreachableBlock = ^(Reachability * reachability) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            triggerNotification = NO;
             networkIsReachable = NO;
-            [self checkStatus:nil];
+            if (recheckTimer.isValid) {
+                [recheckTimer invalidate];
+            }
+            recheckTimer = [NSTimer scheduledTimerWithTimeInterval: 10
+                                                            target: self 
+                                                          selector:@selector(checkStatus:) 
+                                                          userInfo: nil 
+                                                           repeats: NO];
+            
         });
     };
     [reach startNotifier];
