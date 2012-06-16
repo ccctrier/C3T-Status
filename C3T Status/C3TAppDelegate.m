@@ -23,8 +23,8 @@
 {
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
-    statusImage = [NSImage imageNamed:@"led_gray.png"];
-    statusHighlightImage = [NSImage imageNamed:@"led_blue.png"];
+    statusImage = [NSImage imageNamed:@"led_gray"];
+    statusHighlightImage = [NSImage imageNamed:@"led_blue"];
     
     audioPath = [[NSBundle mainBundle] pathForResource:@"notification" ofType:@"m4a"];
     NSURL* url = [NSURL fileURLWithPath:audioPath];
