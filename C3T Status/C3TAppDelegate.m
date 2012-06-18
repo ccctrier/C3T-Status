@@ -87,7 +87,7 @@
 
 - (void) triggerSoundNotification
 {
-    if ([self isSoundActive]) {
+    if ([self isSoundActive] && clubIsOnline) {
         [avAudioPlayer play];
     }
 }
