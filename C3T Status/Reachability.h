@@ -55,12 +55,8 @@ typedef void (^NetworkUnreachable)(Reachability * reachability);
 @property (nonatomic, copy) NetworkReachable    reachableBlock;
 @property (nonatomic, copy) NetworkUnreachable  unreachableBlock;
 
-@property (nonatomic, assign) SCNetworkReachabilityRef  reachabilityRef;
-@property (nonatomic, assign) dispatch_queue_t          reachabilitySerialQueue;
 
 @property (nonatomic, assign) BOOL reachableOnWWAN;
-
-@property (nonatomic, strong) id reachabilityObject;
 
 +(Reachability*)reachabilityWithHostname:(NSString*)hostname;
 +(Reachability*)reachabilityForInternetConnection;

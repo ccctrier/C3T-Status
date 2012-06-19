@@ -30,11 +30,13 @@
 
 NSString *const kReachabilityChangedNotification = @"kReachabilityChangedNotification";
 
-@interface Reachability (private)
+@interface Reachability ()
+
+@property (nonatomic, assign) SCNetworkReachabilityRef  reachabilityRef;
+@property (nonatomic, assign) dispatch_queue_t          reachabilitySerialQueue;
+@property (nonatomic, strong) id reachabilityObject;
 
 -(void)reachabilityChanged:(SCNetworkReachabilityFlags)flags;
--(BOOL)setReachabilityTarget:(NSString*)hostname;
-
 -(BOOL)isReachableWithFlags:(SCNetworkReachabilityFlags)flags;
 
 @end
@@ -160,6 +162,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 -(void)dealloc
 {
     [self stopNotifier];
+
     if(self.reachabilityRef)
     {
         CFRelease(self.reachabilityRef);
@@ -191,6 +194,17 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     // woah
     self.reachabilityObject = self;
     
+    
+
+    // first we need to create a serial queue
+    // we allocate this once for the lifetime of the notifier
+    self.reachabilitySerialQueue = dispatch_queue_create("com.tonymillion.reachability", NULL);
+    if(!self.reachabilitySerialQueue)
+    {
+        return NO;
+    }
+    
+    
     context.info = (__bridge void *)self;
     
     if (!SCNetworkReachabilitySetCallback(self.reachabilityRef, TMReachabilityCallback, &context)) 
@@ -198,23 +212,44 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 #ifdef DEBUG
         NSLog(@"SCNetworkReachabilitySetCallback() failed: %s", SCErrorString(SCError()));
 #endif
+        
+        //clear out the dispatch queue
+        if(self.reachabilitySerialQueue)
+        {
+            dispatch_release(self.reachabilitySerialQueue);
+            self.reachabilitySerialQueue = nil;
+        }
+        
+        self.reachabilityObject = nil;
+
         return NO;
     }
     
-    //create a serial queue
-    self.reachabilitySerialQueue = dispatch_queue_create("com.tonymillion.reachability", NULL);        
-    
     // set it as our reachability queue which will retain the queue
-    if(SCNetworkReachabilitySetDispatchQueue(self.reachabilityRef, self.reachabilitySerialQueue))
+    if(!SCNetworkReachabilitySetDispatchQueue(self.reachabilityRef, self.reachabilitySerialQueue))
     {
-        dispatch_release(self.reachabilitySerialQueue);
-        // refcount should be ++ from the above function so this -- will mean its still 1
-        return YES;
+#ifdef DEBUG
+        NSLog(@"SCNetworkReachabilitySetDispatchQueue() failed: %s", SCErrorString(SCError()));
+#endif
+
+        //UH OH - FAILURE!
+        
+        // first stop any callbacks!
+        SCNetworkReachabilitySetCallback(self.reachabilityRef, NULL, NULL);
+        
+        // then clear out the dispatch queue
+        if(self.reachabilitySerialQueue)
+        {
+            dispatch_release(self.reachabilitySerialQueue);
+            self.reachabilitySerialQueue = nil;
+        }
+        
+        self.reachabilityObject = nil;
+        
+        return NO;
     }
     
-    dispatch_release(self.reachabilitySerialQueue);
-    self.reachabilitySerialQueue = nil;
-    return NO;
+    return YES;
 }
 
 -(void)stopNotifier
@@ -223,10 +258,11 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     SCNetworkReachabilitySetCallback(self.reachabilityRef, NULL, NULL);
     
     // unregister target from the GCD serial dispatch queue
-    // this will mean the dispatch queue gets dealloc'ed
+    SCNetworkReachabilitySetDispatchQueue(self.reachabilityRef, NULL);
+    
     if(self.reachabilitySerialQueue)
     {
-        SCNetworkReachabilitySetDispatchQueue(self.reachabilityRef, NULL);
+        dispatch_release(self.reachabilitySerialQueue);
         self.reachabilitySerialQueue = nil;
     }
     

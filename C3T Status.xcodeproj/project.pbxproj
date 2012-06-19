@@ -320,7 +320,7 @@
 		D46CCC2814A08B8D00DC1435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Becker (7GJFGDQ33M)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/C3T Status/Frameworks\"",
@@ -329,7 +329,7 @@
 				GCC_PREFIX_HEADER = "C3T Status/C3T Status-Prefix.pch";
 				INFOPLIST_FILE = "C3T Status/C3T Status-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BB18DF43-4EF8-451D-B82C-AC217450C512";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -337,7 +337,7 @@
 		D46CCC2914A08B8D00DC1435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Becker (7GJFGDQ33M)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/C3T Status/Frameworks\"",
@@ -346,7 +346,7 @@
 				GCC_PREFIX_HEADER = "C3T Status/C3T Status-Prefix.pch";
 				INFOPLIST_FILE = "C3T Status/C3T Status-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BB18DF43-4EF8-451D-B82C-AC217450C512";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
