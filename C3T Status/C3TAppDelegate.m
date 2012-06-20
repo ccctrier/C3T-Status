@@ -127,12 +127,9 @@
         NSUserNotification *esIstClub = [[NSUserNotification alloc] init];
         esIstClub.title = @"CCC Trier";
         esIstClub.subtitle = @"Es ist Club!";
-        
-        // NSUserNotification.soundName is not working in 10.8 (12A193i)
-        //esIstClub.soundName = audioPath;
+        esIstClub.soundName = audioPath;
             
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:esIstClub];
-        [self triggerSoundNotification];
     }
     else {
         [[NSUserNotificationCenter defaultUserNotificationCenter] removeAllDeliveredNotifications];
